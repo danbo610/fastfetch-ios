@@ -330,22 +330,6 @@ Unsupported modules return an appropriate "not supported on iOS" result rather t
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Project Structure
 
-The important project files are:
-.
-├── build.sh
-├── patches/
-│   ├── 001-ios-cpu.sh
-│   ├── 002-ios-gpu.sh
-│   ├── 003-ios-host.sh
-│   ├── 004-ios-os.sh
-│   ├── 005-ios-shell.sh
-│   ├── 006-ios-packages.sh
-│   ├── 007-ios-localip.sh
-│   ├── 008-ios-display.sh
-│   └── 009-ios-terminal.sh
-└── README.md
-```
-
 The build script clones the upstream Fastfetch source into a temporary directory and applies these modifications during the build.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
