@@ -117,11 +117,10 @@ xcrun --sdk iphoneos --show-sdk-path
 ## Building
 
 Clone your repository:
+https://github.com/seph3421/fastfetch-ios.git
 
-
-git clone <YOUR-REPOSITORY-URL>
-cd <YOUR-REPOSITORY-DIRECTORY>
-
+git clone https://github.com/seph3421/fastfetch-ios.git
+cd fastfetch-ios
 
 Make the build script executable:
 
