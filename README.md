@@ -75,26 +75,32 @@ https://brew.sh/
 Then install the required command-line tools:
 
 Minimal brew list
-"brew install cmake git python dpkg"
+```bash
+brew install cmake git python dpkg
+```
 
 Full brew list
+```bash
 "brew install cmake git python dpkg ldid"
-
+```
 
 Verify them:
-
-"git --version"
-"cmake --version"
-"python3 --version"
-"dpkg-deb --version"
-"ldid --version" (optional)
-
+```bash
+git --version
+cmake --version
+python3 --version
+dpkg-deb --version
+```
+(Optional)
+```bash
+ldid --version
+```
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Verify iPhone SDK
 Verify that Xcode's iPhoneOS SDK is available:
-
-
-"xcrun --sdk iphoneos --show-sdk-path"
+```bash
+xcrun --sdk iphoneos --show-sdk-path
+```
 
 This should return a path similar to:
 
@@ -104,39 +110,40 @@ This should return a path similar to:
 
 If `xcrun` cannot locate the SDK, make sure Xcode is installed and selected:
 
-
-"sudo xcode-select -s /Applications/Xcode.app/Contents/Developer"
-
+```bash
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+```
 
 Then run:
-
-
-"xcrun --sdk iphoneos --show-sdk-path"
-
+```bash
+xcrun --sdk iphoneos --show-sdk-path
+``` 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Building
 
 Move To Documents:
-
-"cd ~/Documents"
-
+```bash
+cd ~/Documents
+```
 Clone your repository:
 https://github.com/seph3421/fastfetch-ios.git
 
-"git clone https://github.com/seph3421/fastfetch-ios.git"
-
-"cd fastfetch-ios"
+```bash
+git clone https://github.com/seph3421/fastfetch-ios.git
+```
+```bash
+cd fastfetch-ios
+```
 
 Make the build script executable:
-
-
-"chmod +x build.sh"
-
+```bash
+chmod +x build.sh
+```
 
 Run it:
-
-"./build.sh"
-
+```bash
+./build.sh"
+```
 
 The script will:
 
