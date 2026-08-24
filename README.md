@@ -81,7 +81,7 @@ brew install cmake git python dpkg
 
 Full brew list
 ```bash
-"brew install cmake git python dpkg ldid"
+brew install cmake git python dpkg ldid
 ```
 
 Verify them:
@@ -142,7 +142,7 @@ chmod +x build.sh
 
 Run it:
 ```bash
-./build.sh"
+./build.sh
 ```
 
 The script will:
