@@ -116,6 +116,9 @@ Then run:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Building
 
+Move To Documents:
+"cd ~/Documents"
+
 Clone your repository:
 https://github.com/seph3421/fastfetch-ios.git
 
