@@ -3,7 +3,7 @@
 An unofficial native iOS port of [Fastfetch](https://github.com/fastfetch-cli/fastfetch), modified to run natively on 
 jailbroken Apple mobile devices.
 
-Add my repo to: [Sileo](sileo://source/https://seph3421.github.io/)
+Add my repo to: [Sileo](https://tinyurl.com/478v5n2k)
 
 Checkout the repo page [seph3421's repo](https://seph3421.github.io)
 
