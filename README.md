@@ -4,6 +4,7 @@ An unofficial native iOS port of [Fastfetch](https://github.com/fastfetch-cli/fa
 jailbroken Apple mobile devices.
 
 Add my repo to: [Sileo](sileo://source/https://seph3421.github.io/)
+
 Checkout the repo page [seph3421's repo](seph3421.github.io)
 
 This project builds Fastfetch as an ARM64 Debian package (`.deb`) for installation through a jailbreak package manager 
