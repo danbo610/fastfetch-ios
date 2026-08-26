@@ -129,7 +129,7 @@ Move To Documents:
 ```bash
 cd ~/Documents
 ```
-Clone your repository:
+Clone the repository:
 https://github.com/seph3421/fastfetch-ios.git
 
 ```bash
