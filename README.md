@@ -17,19 +17,19 @@ such as Sileo.
 <br>
 
 <p>
-<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot1.PNG" width="400">
+<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot1.PNG" width="800">
 </p>
 
 <p>
-<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot2.PNG" width="400">
+<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot2.PNG" width="800">
 </p>
 
 <p>
-<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot3.PNG" width="400">
+<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot3.PNG" width="800">
 </p>
 
 <p>
-<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot4.PNG" width="400">
+<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot4.PNG" width="800">
 </p>
 
 </details>
