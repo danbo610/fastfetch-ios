@@ -222,7 +222,7 @@ The executable is compiled for:
 ARM64
 
 against Apple's:
-iPhoneOS SDK.
+iPhoneOS18.5 SDK.
 
 The package is intended for jailbroken environments where `/var/jb` is available.
 
