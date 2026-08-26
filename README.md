@@ -10,6 +10,30 @@ Checkout the repo page [seph3421's repo](https://seph3421.github.io)
 This project builds Fastfetch as an ARM64 Debian package (`.deb`) for installation through a jailbreak package manager 
 such as Sileo.
 
+## Screenshots
+<details>
+<summary><strong>Show Screenshots</strong></summary>
+
+<br>
+
+<p>
+<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot1.PNG" width="400">
+</p>
+
+<p>
+<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot2.PNG" width="400">
+</p>
+
+<p>
+<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot3.PNG" width="400">
+</p>
+
+<p>
+<img src="https://seph3421.github.io/depictions/com.seph3421.fastfetch/screenshots/screenshot4.PNG" width="400">
+</p>
+
+</details>
+
 ## Tested Devices
 
 The current build has been successfully tested on:
