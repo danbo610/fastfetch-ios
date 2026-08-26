@@ -30,6 +30,8 @@ mkdir -p "$INSTALL_DIR"
 # Clone Fastfetch
 # -----------------------------
 git clone https://github.com/fastfetch-cli/fastfetch.git "$BUILD_DIR"
+cd "$BUILD_DIR"
+git checkout 1b1df2e731d5f59a635a1507dac421f3ab960e9d
 
 # -----------------------------
 # Patch for iOS - disable OpenCL and OpenGL
@@ -454,7 +456,7 @@ EOFSTUB
 
 # Stub out osascript.m (AppKit not available on iOS)
 cat >"$BUILD_DIR/src/common/apple/osascript.m" <<'EOFSTUB'
-#include "osascript.h"/tmp/fastfetch-ios/build/src/common/impl/FFPlatform_unix.c
+#include "osascript.h"
 
 // iOS stub - AppleScript/AppKit not available
 bool ffOsascript(const char* input, FFstrbuf* result)
@@ -674,6 +676,7 @@ Version: $PACKAGE_VERSION
 Section: utils
 Priority: optional
 Architecture: iphoneos-arm64
+Depiction: https://seph3421.github.io/repo/depictions/?p=com.seph3421.fastfetch
 Maintainer: Joseph <https://github.com/seph3421>
 Depends: bash
 Description:Un-Official Native IOS port for Fastfetch.
