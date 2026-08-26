@@ -1,9 +1,24 @@
 python3 - "$BUILD_DIR/src/detection/os/os_apple.m" <<'PY'
 from pathlib import Path
 import sys
+import re
 
 path = Path(sys.argv[1])
 text = path.read_text()
+
+text = re.sub(
+    r'static bool parseSystemVersion\(FFOSResult\* os\)\s*\{.*?\n\}\n',
+    '',
+    text,
+    flags=re.DOTALL
+)
+
+text = re.sub(
+    r'static bool detectOSCodeName\(FFOSResult\* os\)\s*\{.*?\n\}\n',
+    '',
+    text,
+    flags=re.DOTALL
+)
 
 start = text.index("void ffDetectOSImpl(FFOSResult* os)")
 text = text[:start] + r'''void ffDetectOSImpl(FFOSResult* os)
