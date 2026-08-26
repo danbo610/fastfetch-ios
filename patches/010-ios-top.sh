@@ -8,7 +8,7 @@ TOP_C="$BUILD_DIR/src/detection/top/top_apple.c"
 cat > "$TOP_C" <<'EOF_TOP'
 #include "top.h"
 
-const char* ffTopGetProcessSnapshot(FFlist* snapshots, FFTopTypes showTypes)
+const char* ffTopGetProcessSnapshot(FFlist* snapshots, FFTopTypes)
 {
     (void)snapshots;
     return "Process detection not supported on iOS";
