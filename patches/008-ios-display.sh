@@ -143,9 +143,6 @@ static void detectDisplays(FFDisplayServerResult* ds)
         "iOS Display"
     );
 
-    uint32_t dpi =
-        (uint32_t)(scale * 96.0 + 0.5);
-
     FFDisplayResult* result = ffdsAppendDisplay(
         ds,
         width,
