@@ -108,7 +108,7 @@ Minimal brew list
 brew install cmake git python dpkg
 ```
 
-Full brew list
+Full brew list(Needed for Rootful)
 ```bash
 brew install cmake git python dpkg ldid-procursus
 ```
@@ -120,7 +120,7 @@ cmake --version
 python3 --version
 dpkg-deb --version
 ```
-(Optional)
+(Optional/Needed for Rootful)
 ```bash
 which ldid
 ```
@@ -209,27 +209,27 @@ fastfetch_2.67.1_iphoneos-arm64.deb
 
 The package installs Fastfetch into the Rootless jailbreak environment under:
 
-
+```bash
 /var/jb/usr/local/bin/fastfetch
-
+```
 
 Presets are installed under:
 
-
+```bash
 /var/jb/usr/local/share/fastfetch/
-
+```
 
 The package installs Fastfetch into the Rootful jailbreak environment under:
 
-
+```bash
 /usr/local/bin/fastfetch
-
+```
 
 Presets are installed under:
 
-
+```bash
 /usr/local/share/fastfetch/
-
+```
 
 The package contains the normal Debian control directory:
 
@@ -254,14 +254,14 @@ If `/var/jb/usr/local/bin` or '/usr/local/bin/fastfetch' is already in your shel
 
 
 You can also test the Rootless binary directly:
-
+```bash
 /var/jb/usr/local/bin/fastfetch
-
+```
 
 You can also test the Rootful binary directly:
-
+```bash
 /usr/local/bin/fastfetch
-
+```
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## iOS Compatibility
@@ -287,9 +287,9 @@ The package is intended for Rootless jailbroken environments where `/usr/local/`
 The current build has been successfully tested in rootless jailbreak environments.
 
 The package installs into the jailbreak prefix:
-
+```bash
 /var/jb/
-
+```
 
 rather than modifying Apple's sealed system filesystem.
 
@@ -304,9 +304,9 @@ Tested rootless environments include:
 The current build has been successfully tested in rootful jailbreak environments.
 
 The package installs into the System prefix:
-
+```bash
 /usr/local/
-
+```
 
 Tested rootless environments include:
 
