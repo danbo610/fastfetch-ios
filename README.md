@@ -279,7 +279,7 @@ iPhoneOS 18.5 SDK.
 
 The package is intended for Rootless jailbroken environments where `/var/jb` is available.
 
-The package is intended for Rootless jailbroken environments where `/usr/local/` is available.
+The package is intended for Rootful jailbroken environments where `/usr/local/` is available.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Rootless Jailbreaks
