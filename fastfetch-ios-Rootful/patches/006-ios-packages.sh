@@ -26,7 +26,7 @@ static uint32_t countDpkgPackages(void)
     pid_t pid;
 
     char *argv[] = {
-        "/var/jb/usr/bin/dpkg-query",
+        "/usr/bin/dpkg-query",
         "-f",
         "\\n",
         "-W",
@@ -49,7 +49,7 @@ static uint32_t countDpkgPackages(void)
 
     int ret = posix_spawn(
         &pid,
-        "/var/jb/usr/bin/dpkg-query",
+        "/usr/bin/dpkg-query",
         &actions,
         NULL,
         argv,
