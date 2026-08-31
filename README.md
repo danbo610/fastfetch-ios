@@ -250,7 +250,7 @@ After installation:
 
 fastfetch
 
-If `/var/jb/usr/local/bin` or '/usr/local/bin/fastfetch' is already in your shell's `PATH`, Fastfetch can be launched directly.
+If `/var/jb/usr/local/bin` or `/usr/local/bin/fastfetch` is already in your shell's `PATH`, Fastfetch can be launched directly.
 
 
 You can also test the Rootless binary directly:
