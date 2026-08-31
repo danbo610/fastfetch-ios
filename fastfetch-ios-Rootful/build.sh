@@ -17,7 +17,7 @@ ARCH="arm64"
 # -----------------------------
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_BUILD_DIR="$SCRIPT_DIR/build"
-FINAL_DEB="$SCRIPT_DIR/${PACKAGE_NAME}_${PACKAGE_VERSION}_iphoneos-arm64.deb"
+FINAL_DEB="$SCRIPT_DIR/${PACKAGE_NAME}_${PACKAGE_VERSION}_iphoneos-arm.deb"
 
 # -----------------------------
 # Clean previous builds
@@ -613,7 +613,7 @@ cmake .. \
 	-DCMAKE_SYSTEM_PROCESSOR=arm64 \
 	-DCMAKE_OSX_SYSROOT="$SDKROOT" \
 	-DCMAKE_OSX_ARCHITECTURES="$ARCH" \
-	-DCMAKE_OSX_DEPLOYMENT_TARGET="15.0" \
+	-DCMAKE_OSX_DEPLOYMENT_TARGET="12.0" \
 	-DCMAKE_INSTALL_PREFIX=/usr/local \
 	-DCMAKE_C_COMPILER="$CC" \
 	-DCMAKE_CXX_COMPILER="$CXX" \
@@ -631,12 +631,11 @@ cmake .. \
 # -----------------------------
 cmake --build . --target fastfetch
 
-# Manually install the binary to the correct location (not as .app bundle)
-mkdir -p "$INSTALL_DIR/var/jb/usr/local/bin"
-cp "$BUILD_DIR/source/fastfetch.app/fastfetch" "$INSTALL_DIR/var/jb/usr/local/bin/fastfetch"
+# Manually install the binary to the correct rootful location
+mkdir -p "$INSTALL_DIR/usr/local/bin"
+cp "$BUILD_DIR/source/fastfetch.app/fastfetch" "$INSTALL_DIR/usr/local/bin/fastfetch"
 
-# Sign the binary with ldid for jailbroken iOS (ad-hoc signature)
-# Create entitlements file
+# Sign the binary with ldid
 cat >"/tmp/ent.plist" <<'ENTEOF'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -650,19 +649,17 @@ cat >"/tmp/ent.plist" <<'ENTEOF'
 </plist>
 ENTEOF
 
-# Try ldid first (if installed via Homebrew), otherwise use codesign
 if command -v ldid &>/dev/null; then
-	ldid -S/tmp/ent.plist "$INSTALL_DIR/var/jb/usr/local/bin/fastfetch"
-	echo "Signed with ldid"
+    ldid -S/tmp/ent.plist "$INSTALL_DIR/usr/local/bin/fastfetch"
+    echo "Signed with ldid"
 else
-	# Use codesign with ad-hoc signature
-	codesign --force --deep --sign - "$INSTALL_DIR/var/jb/usr/local/bin/fastfetch"
-	echo "Signed with codesign (ad-hoc). You may need to re-sign with ldid on device."
+    codesign --force --deep --sign - "$INSTALL_DIR/usr/local/bin/fastfetch"
+    echo "Signed with codesign (ad-hoc). You may need to re-sign with ldid on device."
 fi
 
-# Copy presets and other data
-mkdir -p "$INSTALL_DIR/var/jb/usr/local/share/fastfetch"
-cp -r "$BUILD_DIR/presets" "$INSTALL_DIR/var/jb/usr/local/share/fastfetch/" 2>/dev/null || true
+# Copy presets/data
+mkdir -p "$INSTALL_DIR/usr/local/share/fastfetch"
+cp -r "$BUILD_DIR/presets" "$INSTALL_DIR/usr/local/share/fastfetch/" 2>/dev/null || true
 
 # -----------------------------
 # Create Debian structure
@@ -675,7 +672,7 @@ Package: $PACKAGE_NAME
 Version: $PACKAGE_VERSION
 Section: utils
 Priority: optional
-Architecture: iphoneos-arm64
+Architecture: iphoneos-arm
 Depiction: https://seph3421.github.io/repo/depictions/?p=com.seph3421.fastfetch
 Maintainer: Joseph <https://github.com/seph3421>
 Depends: bash

@@ -7,7 +7,7 @@ Add my repo to: [Sileo](https://tinyurl.com/478v5n2k)
 
 Checkout the repo page [seph3421's repo](https://seph3421.github.io)
 
-This project builds Fastfetch as an ARM64 Debian package (`.deb`) for installation through a jailbreak package manager 
+This project builds Fastfetch as an ARM64 or ARM (Rootless or Rootful) Debian package (`.deb`) for installation through a jailbreak package manager
 such as Sileo.
 
 ## Screenshots
@@ -44,6 +44,7 @@ The current build has been successfully tested on:
 | iPad Pro 9.7"     | Apple A9X        | palera1n / rootless     |
 | iPhone 11         | Apple A13 Bionic | Dopamine 3.0 / rootless |
 | iPhone 12 Pro Max | Apple A14 Bionic | Dopamine 3.0 / rootless |
+| iPad mini 2.      | Apple A7.        | Amethyst.    / rootful  |
 
 The device detection code identifies Apple hardware using the `hw.machine` identifier exposed through `sysctl`.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -109,7 +110,7 @@ brew install cmake git python dpkg
 
 Full brew list
 ```bash
-brew install cmake git python dpkg ldid
+brew install cmake git python dpkg ldid-procursus
 ```
 
 Verify them:
@@ -162,6 +163,13 @@ git clone https://github.com/seph3421/fastfetch-ios.git
 ```bash
 cd fastfetch-ios
 ```
+Move to Rootless/Rootful:
+```bash
+cd fastfetch-ios-Rootless
+```
+```bash
+cd fastfetch-ios-Rootful
+```
 
 Make the build script executable:
 ```bash
@@ -192,12 +200,14 @@ The script will:
 
 The resulting package will be created in the project directory as:
 
+fastfetch_2.67.1_iphoneos-arm.deb
+
 fastfetch_2.67.1_iphoneos-arm64.deb
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Package Layout
 
-The package installs Fastfetch into the jailbreak environment under:
+The package installs Fastfetch into the Rootless jailbreak environment under:
 
 
 /var/jb/usr/local/bin/fastfetch
@@ -207,6 +217,18 @@ Presets are installed under:
 
 
 /var/jb/usr/local/share/fastfetch/
+
+
+The package installs Fastfetch into the Rootful jailbreak environment under:
+
+
+/usr/local/bin/fastfetch
+
+
+Presets are installed under:
+
+
+/usr/local/share/fastfetch/
 
 
 The package contains the normal Debian control directory:
@@ -228,12 +250,18 @@ After installation:
 
 fastfetch
 
-If `/var/jb/usr/local/bin` is already in your shell's `PATH`, Fastfetch can be launched directly.
+If `/var/jb/usr/local/bin` or '/usr/local/bin/fastfetch' is already in your shell's `PATH`, Fastfetch can be launched directly.
 
 
-You can also test the binary directly:
+You can also test the Rootless binary directly:
 
 /var/jb/usr/local/bin/fastfetch
+
+
+You can also test the Rootful binary directly:
+
+/usr/local/bin/fastfetch
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## iOS Compatibility
@@ -244,11 +272,14 @@ It is **not** intended to run as a normal App Store application or standalone iO
 
 The executable is compiled for:
 ARM64
+ARM
 
 against Apple's:
 iPhoneOS 18.5 SDK.
 
-The package is intended for jailbroken environments where `/var/jb` is available.
+The package is intended for Rootless jailbroken environments where `/var/jb` is available.
+
+The package is intended for Rootless jailbroken environments where `/usr/local/` is available.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Rootless Jailbreaks
@@ -270,16 +301,18 @@ Tested rootless environments include:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Rootful Jailbreaks
 
-Known Rootful problems: when installed and binary is manually exec results in "Killed: 9". If you want to make a Rootful
-branch be my guest I only use rootless jb recently so idk.
+The current build has been successfully tested in rootful jailbreak environments.
 
-Rootful environments may have different filesystem, environment, and package-management behavior.
+The package installs into the System prefix:
 
-The binary itself is ARM64 and is not inherently restricted to a particular iPhone or iPad model. However, the jailbreak
-environment determines how the package filesystem and executable are exposed.
+/usr/local/
 
-If the binary works in a rootless environment but is killed or cannot be located in a rootful environment, investigate the
-jailbreak's executable environment and filesystem layout separately from the Fastfetch binary.
+
+Tested rootless environments include:
+
+* Amethyst
+* Checkra1n
+* Any checkm8 or Odysseyra1n bootstrap
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Device Detection
