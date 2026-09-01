@@ -1,0 +1,19 @@
+name: Build roothide deb
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dpkg + ldid
+        run: brew install dpkg ldid
+      - name: Build roothide deb
+        run: |
+          chmod +x fastfetch-ios-Roothide/build.sh
+          ./fastfetch-ios-Roothide/build.sh
+      - name: Upload deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fastfetch-roothide-deb
+          path: fastfetch-ios-Roothide/*.deb
+          if-no-files-found: error
