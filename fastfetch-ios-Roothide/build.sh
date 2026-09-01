@@ -67,14 +67,18 @@ sed -i '' 's/if (system(unsafe_yyjson_get_str(val)) < 0)/if (0 \/* system() unav
 sed -i '' 's/#elif __APPLE__/#elif 0 \/\* disabled for iOS - no KextManager \*\//' "$BUILD_DIR/src/common/impl/kmod_apple.c"
 
 # Stub out netif_apple.c (net/route.h not available on iOS)
+# 注意:上游 1b1df2e 的 netif.c 需要 ImplV4/ImplV6 两个符号
 cat >"$BUILD_DIR/src/common/impl/netif_apple.c" <<'EOFSTUB'
 #include "../netif.h"
-#include "../io.h"
 
 // iOS stub - net/route.h is not available
-bool ffNetifGetDefaultRouteImpl(FFstrbuf* defaultRoute, const char* ifNameHint) {
-    (void)ifNameHint;
-    ffStrbufClear(defaultRoute);
+bool ffNetifGetDefaultRouteImplV4(FFNetifDefaultRouteResult* result) {
+    (void)result;
+    return false;
+}
+
+bool ffNetifGetDefaultRouteImplV6(FFNetifDefaultRouteResult* result) {
+    (void)result;
     return false;
 }
 EOFSTUB
@@ -159,6 +163,16 @@ const char* ffProcessGetBasicInfoLinux(pid_t pid, FFstrbuf* name, pid_t* ppid, i
     if (ppid) *ppid = 0;
     if (tty) *tty = -1;
     return "Not supported on iOS";
+}
+
+// 上游 1b1df2e 的 initsystem_linux.c 需要这个符号
+void ffProcessGetInfoLinux(pid_t pid, FFstrbuf* processName, FFstrbuf* exe, const char** exeName, FFstrbuf* exePath)
+{
+    (void)pid;
+    if (processName) ffStrbufClear(processName);
+    if (exe) ffStrbufClear(exe);
+    if (exePath) ffStrbufClear(exePath);
+    if (exeName) *exeName = NULL;
 }
 EOFSTUB
 
